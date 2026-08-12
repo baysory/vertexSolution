@@ -28,6 +28,7 @@ import {
   Code,
   Gauge,
 } from "lucide-react";
+import logoWhite from "./assets/vertex.png";
 
 // ---------------------------------------------------------------------------
 // TODO (Vertex): trocar pelo número real de WhatsApp, formato 55DDDNUMERO
@@ -37,7 +38,8 @@ const WHATSAPP_TEXT = encodeURIComponent(
   "Olá! Vim pelo site da Vertex Solutions e quero criar meu site."
 );
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
-
+const INSTAGRAM_LINK = "https://www.instagram.com/vertexsolutions.ofc?igsh=N2RjaW91ZWF3aWV2&utm_source=qr";
+const EMAIL_LINK = "mailto:vertexsolutionsoficial@gmail.com";
 const NAV_LINKS = [
   { label: "Serviços", href: "#servicos" },
   { label: "Diferenciais", href: "#diferenciais" },
@@ -219,28 +221,10 @@ function Reveal({ children, className = "", delay = 0 }) {
 
 function Logo({ variant = "light" }) {
   const isDark = variant === "dark";
-  const uid = useId();
-  const gradId = `vertexGrad-${uid}`;
 
   return (
-    <div className="flex items-center gap-2.5">
-      <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id={gradId} x1="4" y1="4" x2="30" y2="30" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#38bdf8" />
-            <stop offset="100%" stopColor="#7c3aed" />
-          </linearGradient>
-        </defs>
-        <line x1="17" y1="17" x2="6" y2="9" stroke={`url(#${gradId})`} strokeWidth="1.6" strokeLinecap="round" />
-        <line x1="17" y1="17" x2="28" y2="9" stroke={`url(#${gradId})`} strokeWidth="1.6" strokeLinecap="round" />
-        <line x1="17" y1="17" x2="6" y2="25" stroke={`url(#${gradId})`} strokeWidth="1.6" strokeLinecap="round" />
-        <line x1="17" y1="17" x2="28" y2="25" stroke={`url(#${gradId})`} strokeWidth="1.6" strokeLinecap="round" />
-        <circle cx="17" cy="17" r="4.2" fill={`url(#${gradId})`} />
-        <circle cx="6" cy="9" r="2.4" fill={`url(#${gradId})`} />
-        <circle cx="28" cy="9" r="2.4" fill={`url(#${gradId})`} />
-        <circle cx="6" cy="25" r="2.4" fill={`url(#${gradId})`} />
-        <circle cx="28" cy="25" r="2.4" fill={`url(#${gradId})`} />
-      </svg>
+    <div className="flex items-center gap-3">
+      <img src={logoWhite} alt="Vertex Solutions" className="h-20 w-auto" />
       <div className="leading-none">
         <div className={`font-display font-bold tracking-tight text-lg ${isDark ? "text-white" : "text-slate-900"}`}>
           VERTEX
@@ -931,6 +915,26 @@ function Footer() {
                   className="font-body text-sm text-slate-400 hover:text-white transition-colors duration-200"
                 >
                   WhatsApp
+                </a>
+              </li>
+                <li>
+                <a
+                  href={INSTAGRAM_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={EMAIL_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-body text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                >
+                  vertexsolutionsoficial@gmail.com
                 </a>
               </li>
               <li className="font-body text-sm text-slate-400">Atendimento em todo o Brasil</li>
